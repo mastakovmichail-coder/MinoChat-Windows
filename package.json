@@ -1,0 +1,54 @@
+{
+  "name": "minochat",
+  "productName": "MinoChat",
+  "version": "4.0.0",
+  "description": "MinoChat - мессенджер",
+  "main": "main.js",
+  "author": "MinoChat",
+  "license": "UNLICENSED",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win --x64",
+    "pack": "electron-builder --win --x64 --dir"
+  },
+  "devDependencies": {
+    "electron": "^33.2.0",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "app.minochat.desktop",
+    "productName": "MinoChat",
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    },
+    "files": [
+      "main.js",
+      "www/**/*",
+      "build/icon.png"
+    ],
+    "win": {
+      "icon": "build/icon.ico",
+      "target": [
+        "nsis"
+      ],
+      "legalTrademarks": "MinoChat"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "MinoChat",
+      "installerIcon": "build/icon.ico",
+      "uninstallerIcon": "build/icon.ico",
+      "artifactName": "MinoChat-Windows-Setup.${ext}"
+    },
+    "portable": {
+      "artifactName": "MinoChat-Portable-${version}.${ext}"
+    }
+  },
+  "copyright": "Copyright (C) MinoChat",
+  "homepage": "https://speeky-a0653.web.app"
+}
